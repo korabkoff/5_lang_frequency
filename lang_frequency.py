@@ -22,11 +22,11 @@ def load_data(file_path):
         return file_handler.read()
 
 
-def get_most_frequent_words(text, amount):
+def get_most_frequent_words(text):
 
     if not text:
         return None
-
+    amount = 10
     text_split = re.split("[\W\d]+", text)
     most_common_words_n_amount = Counter(text_split).most_common(amount)
     return [word_n_count[0] for word_n_count in most_common_words_n_amount]
@@ -42,6 +42,6 @@ if __name__ == '__main__':
 
     text = load_data(file_path)
 
-    print('Top 10 most used words in this text are: %s' % str(get_most_frequent_words(text, 10)))
+    print('Top 10 most used words in this text are: %s' % str(get_most_frequent_words(text)))
 
 
